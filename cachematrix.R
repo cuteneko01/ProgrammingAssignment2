@@ -22,7 +22,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## the parameter of cacheSolve should be a list created by the above function makeCacheMatrix
 cacheSolve <- function(x, ...) {
   inv <- x$getinv()
-  if(all(!is.na(inv))) {
+  if(!is.null(inv)) {
     message("getting cached data")
     return(inv)
   }
