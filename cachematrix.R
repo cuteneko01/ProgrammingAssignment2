@@ -1,13 +1,13 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## make a list of matrix and its inverse
-
+## create a list which contains a series of functions to set or get the matrix and its inverse
+## the input parameter should be an invertible matrix
 makeCacheMatrix <- function(x = matrix()) {
-  inv <- matrix(NA,nrow=nrow(x),ncol=ncol(x))
+  inv <- NULL
   set <- function(y) {
     x <<- y
-    inv <<- matrix(NA,nrow=nrow(x),ncol=ncol(x))
+    inv <<- NULL
   }
   get <- function() x
   setinv <- function(inversem) inv <<- inversem
@@ -18,8 +18,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## return the inverse if a matrix if already exist or calculate if not exist
-
+## return the inverse of a matrix if it already exists or calculate the inverse if it does not exist
+## the parameter of cacheSolve should be a list created by the above function makeCacheMatrix
 cacheSolve <- function(x, ...) {
   inv <- x$getinv()
   if(all(!is.na(inv))) {
